@@ -1,0 +1,6 @@
+---
+- name: install_docker_ce
+  hosts: all
+  roles:
+    - test/install_docker_ce
+  tags: install_docker_ce

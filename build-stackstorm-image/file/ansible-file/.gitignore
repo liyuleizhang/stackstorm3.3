@@ -1,0 +1,10 @@
+.idea
+.venv
+*.pyc
+*.swp
+.DS_Store
+hosts
+
+# 屏蔽cloudwise相关部署功能
+roles/cloudwise
+playbooks/cloudwise

@@ -1,0 +1,3 @@
+FROM stackstorm/st2api:3.3.0
+
+COPY file/packs/ /opt/stackstorm/packs/

@@ -1,0 +1,8 @@
+FROM stackstorm/st2actionrunner:3.3.0
+
+RUN sudo apt-get update && sudo apt-get install -y gcc libkrb5-dev sshpass
+
+ADD file/ansible.tar.gz /opt/stackstorm/virtualenvs/
+
+COPY file/ansible-file /etc/ansible
+COPY file/python-tests-file /src/tests

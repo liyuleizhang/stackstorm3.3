@@ -1,0 +1,6 @@
+---
+- name: test
+  hosts: all
+  roles:
+    - test/test
+  tags: test

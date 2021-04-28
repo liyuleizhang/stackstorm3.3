@@ -1,0 +1,34 @@
+---
+name: 3.create_ansible_inventory
+runner_type: "local-shell-script"
+description: "创建ansible的inventory文件，并添加一条hosts服务器记录，必填项：hosts服务器信息node01_1_ansible_hosts、node01_2_ansible_port、node01_3_ansible_user、node01_4_ansible_password；stackstorm宿主机信息hosts、username、password。"
+enabled: true
+entry_point: 'shell/3.create_ansible_inventory.sh'
+parameters:
+  sudo:
+    default: true
+    immutable: true
+  node01:
+    type: string
+    required: true
+    description: '填写格式:节点名称 ansible_host=ip地址 ansible_port=ssh端口 ansible_user=用户名 ansible_password=密码（例如：node01 ansible_host=192.168.1.1 ansible_port=22 ansible_user=root ansible_password=123456）'
+    default: 'node01 ansible_host=192.168.1.1 ansible_port=22 ansible_user=root ansible_password=123456'
+    position: 1
+  node02:
+    type: string
+    required: true
+    description: '填写格式:节点名称 ansible_host=ip地址 ansible_port=ssh端口 ansible_user=用户名 ansible_password=密码,不填则为空。（例如：node02 ansible_host=192.168.1.2 ansible_port=22 ansible_user=root ansible_password=123456）'
+    default: '#'
+    position: 2
+  node03:
+    type: string
+    required: true
+    description: '填写格式:节点名称 ansible_host=ip地址 ansible_port=ssh端口 ansible_user=用户名 ansible_password=密码,不填则为空。（例如：node03 ansible_host=192.168.1.3 ansible_port=22 ansible_user=root ansible_password=123456）'
+    default: '#'
+    position: 3
+  node04:
+    type: string
+    required: true
+    description: '填写格式:节点名称 ansible_host=ip地址 ansible_port=ssh端口 ansible_user=用户名 ansible_password=密码,不填则为空。（例如：node04 ansible_host=192.168.1.4 ansible_port=22 ansible_user=root ansible_password=123456）'
+    default: '#'
+    position: 4

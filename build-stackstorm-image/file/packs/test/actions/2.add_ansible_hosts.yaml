@@ -1,0 +1,36 @@
+---
+name: 2.add_ansible_hosts
+description: 添加ansible的hosts服务器记录，必填项：hosts服务器信息node_1_ansible_numbers、node_2_ansible_hosts、node_3_ansible_port、node_4_ansible_user、node_5_ansible_password。
+runner_type: orquesta
+entry_point: workflows/2.add_ansible_hosts.yaml
+enabled: true
+parameters:
+  node_1_ansible_numbers:
+    type: string
+    required: true
+    description: node节点编号（例如：添加第一个输入02，单击运行；添加第二个输入03，单击运行）
+    default: ''
+    position: 1
+  node_2_ansible_hosts:
+    type: string
+    required: true
+    description: node节点ip地址（例如：192.168.1.2）
+    default: ''
+    position: 2
+  node_3_ansible_port:
+    type: integer
+    required: true
+    description: node节点ssh端口，不填默认22端口（例如：22）
+    default: 22
+    position: 3
+  node_4_ansible_user:
+    type: string
+    required: true
+    description: node节点用户名，不填默认root用户（例如：root）
+    default: 'root'
+    position: 4
+  node_5_ansible_password:
+    required: true
+    description: node节点密码（例如：123456）
+    default: ''
+    position: 5

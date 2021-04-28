@@ -1,0 +1,13 @@
+version: 1.0
+description: 查看指定inventory文件，并测试是否能正常连通，ansible的ping命令
+input:
+- node_1_ansible_numbers
+- node_2_ansible_hosts
+- node_3_ansible_port
+- node_4_ansible_user
+- node_5_ansible_password
+tasks:
+  touch_ansible_inventory:
+    action: core.local_sudo
+    input:
+      cmd: 'echo "node"{{ ctx("node_1_ansible_numbers") }}" ansible_host="{{ ctx("node_2_ansible_hosts") }}" ansible_port="{{ ctx("node_3_ansible_port") }}" ansible_user="{{ ctx("node_4_ansible_user") }}" ansible_password="{{ ctx("node_5_ansible_password") }}"" >>/etc/ansible/stage/test/inventory && cat /etc/ansible/stage/test/inventory'

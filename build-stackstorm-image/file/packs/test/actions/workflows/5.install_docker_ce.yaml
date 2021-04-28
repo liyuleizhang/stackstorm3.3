@@ -1,0 +1,12 @@
+version: 1.0
+description: 用ansible在指定宿主机内安装docker-ce最新版本和docker-compose，需要目标主机连外网
+input:
+- docker_compose_download_url
+tasks:
+  install_docker_ce:
+    action: ansible.playbook
+    input:
+      playbook: /etc/ansible/playbooks/test/install_docker_ce.yml
+      inventory_file: /etc/ansible/stage/test/inventory
+      extra_vars:
+        - docker_compose_download_url="{{ ctx("docker_compose_download_url") }}"

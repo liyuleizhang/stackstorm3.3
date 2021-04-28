@@ -1,0 +1,14 @@
+---
+name: 1.timing_task    #名称
+description: 每日早8点定时执行test模块下6.test_hello任务    #说明
+enabled: false    #是否开启
+trigger:    #使用的触发器
+  type: core.st2.CronTimer
+  parameters:    #year年、month月、day日、hour小时24进制、minute分、second秒
+    second: "0"
+    minute: "0"
+    hour: "8"
+action:    #执行的任务
+  ref: test.6.test_hello
+    parameters:
+        name: Yo

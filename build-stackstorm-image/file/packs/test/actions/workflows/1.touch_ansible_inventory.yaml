@@ -1,0 +1,12 @@
+version: 1.0
+description: 创建inventory文件，并输入一条记录
+input:
+- node01_1_ansible_hosts
+- node01_2_ansible_port
+- node01_3_ansible_user
+- node01_4_ansible_password
+tasks:
+  touch_ansible_inventory:
+    action: core.local_sudo
+    input:
+      cmd: 'echo "node01 ansible_host="{{ ctx("node01_1_ansible_hosts") }}" ansible_port="{{ ctx("node01_2_ansible_port") }}" ansible_user="{{ ctx("node01_3_ansible_user") }}" ansible_password="{{ ctx("node01_4_ansible_password") }}"" >/etc/ansible/stage/test/inventory && cat /etc/ansible/stage/test/inventory'

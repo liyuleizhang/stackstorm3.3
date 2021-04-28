@@ -1,0 +1,16 @@
+version: 1.0
+description: 查看指定inventory文件，并测试是否能正常连通，ansible的ping命令
+input:
+- filepath
+tasks:
+  cat_ansible_inventory:
+    action: core.local_sudo cmd='cat {{ ctx("filepath") }}'
+    next:
+    - when: "{{ succeeded() }}"
+      do:
+      - ping_ansible_inventory
+    - when: "{{ failed() }}"
+      do:
+      - fail
+  ping_ansible_inventory:
+    action: ansible.command inventory_file='{{ ctx("filepath") }}' hosts='all' module_name='ping'

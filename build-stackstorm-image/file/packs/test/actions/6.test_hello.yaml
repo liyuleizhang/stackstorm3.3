@@ -1,0 +1,13 @@
+---
+name: 6.test_hello
+runner_type: "local-shell-script"
+description: 在容器内输出hello！
+enabled: true
+entry_point: shell/6.test_hello.sh
+parameters:
+    name:
+        type: string
+        description: 输出任意内容将输出出来
+        default: 'name'
+        required: true
+        position: 1

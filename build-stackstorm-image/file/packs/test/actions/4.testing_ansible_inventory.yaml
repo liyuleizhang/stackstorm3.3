@@ -1,0 +1,13 @@
+---
+name: 4.testing_ansible_inventory
+description: 查看创建的ansible_inventory文件内容，并测试是否能正常连通，ansible的ping命令
+runner_type: orquesta
+entry_point: workflows/4.testing_ansible_inventory.yaml
+enabled: true
+parameters:
+  filepath:
+    description: "inventory文件的绝对路径"
+    default: "/etc/ansible/stage/test/inventory"
+    type: string
+    required: true
+    position: 0

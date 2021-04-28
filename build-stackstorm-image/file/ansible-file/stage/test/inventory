@@ -1,0 +1,1 @@
+registry ansible_host=10.211.55.151   ansible_port=22     ansible_user=root   ansible_password=huacloud

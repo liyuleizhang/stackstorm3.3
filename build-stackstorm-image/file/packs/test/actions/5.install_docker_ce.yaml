@@ -1,0 +1,13 @@
+---
+name: 5.install_docker_ce
+description: 用ansible在指定宿主机内安装docker-ce最新版本和docker-compose，需要目标主机连外网
+runner_type: orquesta
+entry_point: workflows/5.install_docker_ce.yaml
+enabled: true
+parameters:
+  docker_compose_download_url:
+    description: "docker_compose网络下载url，不填使用默认地址"
+    default: "http://liyulei.f3322.net:8081/repository/miscs/docker/docker-compose"
+    type: string
+    required: true
+    position: 0

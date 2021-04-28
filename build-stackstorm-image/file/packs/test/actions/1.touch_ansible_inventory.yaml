@@ -1,0 +1,30 @@
+---
+name: 1.touch_ansible_inventory
+description: 创建ansible的inventory文件，并添加一条hosts服务器记录，必填项：hosts服务器信息node01_1_ansible_hosts、node01_2_ansible_port、node01_3_ansible_user、node01_4_ansible_password。
+runner_type: orquesta
+entry_point: workflows/1.touch_ansible_inventory.yaml
+enabled: true
+parameters:
+  node01_1_ansible_hosts:
+    type: string
+    required: true
+    description: node1节点ip地址（例如：192.168.1.2）
+    default: ''
+    position: 1
+  node01_2_ansible_port:
+    type: integer
+    required: true
+    description: node1节点ssh端口,不填默认22端口（例如：22）
+    default: 22
+    position: 2
+  node01_3_ansible_user:
+    type: string
+    required: true
+    description: node1节点用户名，不填默认root用户（例如：root）
+    default: root
+    position: 3
+  node01_4_ansible_password:
+    required: true
+    description: node1节点密码（例如：123456）
+    default: ''
+    position: 4
